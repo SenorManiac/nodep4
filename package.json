@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.4.7",
@@ -13,5 +14,6 @@
     "pg": "^8.13.1"
   },
   "scripts": {
-    "start": "node app.js"  }
+    "start": "node app.js"
+  }
 }

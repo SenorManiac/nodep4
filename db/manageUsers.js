@@ -1,7 +1,6 @@
 const { name } = require('ejs');
 const pool = require('./pool');
-const bcrypt = require('bcrypt');
-
+const bcrypt = require('bcryptjs');
 
 const checkIfUserExists = async (username) => {
     const result = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
