@@ -77,6 +77,15 @@ const addPost = async (title, body, user_id) => {
     }
 };
 
+const deletePost = async (id) => {
+    const client = await pool.connect();
+    try {
+        await client.query('DELETE FROM posts WHERE id = $1', [id]);
+    } finally {
+        client.release();
+    }
+};
+
 module.exports = {
     checkIfUserExists,
     addNewUser,
@@ -87,5 +96,6 @@ module.exports = {
     findById,
     getPosts,
     addPost,
-    getPostsbyID
+    getPostsbyID,
+    deletePost
 };

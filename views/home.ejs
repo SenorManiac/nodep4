@@ -9,19 +9,15 @@
 <body>
   <header>
     <h1>Welcome Back <%= user.username %>!
-        <% if (user.in_the_club) {Thanks for being part of the Secret Club!} %>
-
-    
+        <% if (user.in_the_club) { %>
+          Thanks for being part of the Secret Club!
+        <% } %>
     </h1>
     <br>
     <nav>
       <ul>
         <li> <a href="/newpost">Add Post</a></li>
         <li><a href="/log-out">Log Out</a></li>
-      </ul>
-    <nav>
-      <ul>
-        <!-- Add navigation links here -->
       </ul>
     </nav>
   </header>
@@ -35,6 +31,11 @@
               <h3><%= post.title %></h3>
               <p><%= post.content %></p>
               <a href="/posts/<%= post.id %>">Read more</a>
+              <% if (post.user_id === user.id || user.role === 'admin' ) { %>
+                <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+                  <button>Delete</button>
+                </form>
+              <% } %>
             </div>
           </div>
         <% }); %>

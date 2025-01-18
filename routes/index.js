@@ -42,6 +42,9 @@ router.post("/log-in", passport.authenticate("local", {
 
 router.get("/home", (req, res) => {
     console.log("GET /home");
+    if (!req.user) {
+        return res.redirect("/log-in");
+    } 
     manageUsers.getPosts().then((posts) => {
         res.render("home", { posts, user: req.user });
     }
@@ -115,4 +118,20 @@ router.post("/secret", (req, res) => {
     });}
 });
 
+router.post("/posts/:id", (req, res) => {
+    if (req.query._method === 'DELETE') {
+        console.log("POST /posts/:id?_method=DELETE");
+        if (!req.user) {
+            return res.redirect("/log-in");
+        }
+        manageUsers.deletePost(req.params.id).then(() => {
+            res.redirect("/home");
+        }).catch((err) => {
+            console.error(err);
+            res.status(500).send("Error deleting post");
+        });
+    } else {
+        res.status(400).send("Invalid method");
+    }
+});
 module.exports = router;
