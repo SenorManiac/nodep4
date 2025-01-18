@@ -13,7 +13,6 @@
     "pg": "^8.13.1"
   },
   "scripts": {
-    "start": "node index.js",
-    "app": "node app.js"
+        "app": "node app.js"
   }
 }
