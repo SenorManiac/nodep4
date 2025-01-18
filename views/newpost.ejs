@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnlyChats</title>
+  <link rel="stylesheet" href="/styles.css"> 
+</head>
+<body>
+  <header>
+    <h1>OnlyChats</h1>
+    <nav>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/log-out">Log Out</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="post-section">
+      <button class="back-button" onclick="window.history.back()">Back</button>
+      <div class="post">
+       <form action="/new-post" method="post">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+          <label for="body">Content:</label>
+            <textarea id="body" name="body" required></textarea>
+            <button type="submit">Post</button>    
+        </div>
+        </form>
+        <button class="secret-button" onclick="window.location.href = '/secret'">Do you want to join a Secret club?</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> OnlyChats. All rights reserved.</p>
+  </footer>
+</body>
+</html>

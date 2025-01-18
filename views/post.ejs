@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %> - OnlyChats</title>
+  <link rel="stylesheet" href="/styles.css"> 
+</head>
+<body>
+  <header>
+    <h1>OnlyChats</h1>
+    <nav>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/log-out">Log Out</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="post-section">
+      <button class="back-button" onclick="window.history.back()">Back</button>
+      <div class="post">
+        <h2 class="post-title"><%= post.title %></h2>
+        <p class="post-date">Posted on <%= new Date(post.created_at).toLocaleDateString() %></p>
+        <div class="post-content">
+          <p><%= post.body %></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> OnlyChats. All rights reserved.</p>
+  </footer>
+</body>
+</html>

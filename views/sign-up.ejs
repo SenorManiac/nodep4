@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - OnlyChats</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Sign Up for OnlyChats</h1>
+  </header>
+  <main>
+    <section>
+      <% if (typeof errorMessage !== 'undefined') { %>
+        <p style="color: red;"><%= errorMessage %></p>
+      <% } %>
+      <form action="/sign-up" method="post">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> OnlyChats. All rights reserved.</p>
+  </footer>
+</body>
+</html>
